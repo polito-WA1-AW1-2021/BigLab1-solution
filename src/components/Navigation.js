@@ -3,19 +3,18 @@ import { PersonCircle, CheckAll } from 'react-bootstrap-icons';
 
 
 const Navigation = (props) => {
-  const { onToggleSidebar } = props;
 
   return (
-    <Navbar bg="success" expand="sm" variant="dark" fixed="top">
+    <Navbar bg="success" variant="dark" fixed="top">
       { /* <Navbar.Toggle aria-controls="left-sidebar" onClick={this.showSidebar}/> */}
-      <Navbar.Toggle aria-controls="left-sidebar" onClick={onToggleSidebar}/>
+      <Navbar.Toggle aria-controls="left-sidebar"/>
       <Navbar.Brand href="/">
         <CheckAll className="mr-1" size="30" /> ToDo Manager
       </Navbar.Brand>
-      <Form inline className="my-2 my-lg-0 mx-auto d-none d-sm-block" action="#" role="search" aria-label="Quick search">
-        <Form.Control className="mr-sm-2" type="search" placeholder="Search" aria-label="Search query" />
+      <Form inline className="my-0 mx-auto" action="#" role="search" aria-label="Quick search">
+        <Form.Control className="mr-2" type="search" placeholder="Search" aria-label="Search query" />
       </Form>
-      <Nav className="ml-md-auto">
+      <Nav className="ml-auto">
         <Nav.Item>
           <Nav.Link href="#">
             <PersonCircle size="30" />

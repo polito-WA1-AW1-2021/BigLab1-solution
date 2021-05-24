@@ -3,7 +3,7 @@ import { React, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import { Container, Row, Col, Button, Collapse } from 'react-bootstrap/';
+import { Container, Row, Col, Button } from 'react-bootstrap/';
 
 import dayjs from 'dayjs';
 import isToday from 'dayjs/plugin/isToday';
@@ -20,23 +20,12 @@ dayjs.extend(isToday);
 
 const App = () => {
 
-  // This state is used for enabling the mobile mode (not required)
-  const [openMobileMenu, setOpenMobileMenu] = useState(false);
-
   // This state is an object containing the list of tasks, and the last used ID (necessary to create a new task that has a unique ID)
   const [taskList, setTaskList] = useState(TASKS);
 
   // use an enum
   const MODAL = { CLOSED: -2, ADD: -1 };
   const [selectedTask, setSelectedTask] = useState(MODAL.CLOSED);
-
-  
-  const toggleSidebar = () => {
-    // Commented out because not required
-    setOpenMobileMenu((flag) => /*!*/flag)
-  }
-  
-
 
   const addTask = (task) => {
     const id = Math.max(...taskList.map( t => t.id )) + 1;
@@ -76,11 +65,11 @@ const App = () => {
   return (
     <Router>
       <Container fluid>
-        <Navigation onToggleSidebar={toggleSidebar} />
+        <Navigation />
         <Row className="vh-100">
           <Switch>
             <Route path={["/list/:filter"]}>
-              <TaskMgr collapsed={openMobileMenu} taskList={taskList} onDelete={deleteTask} onEdit={handleEdit}></TaskMgr>
+              <TaskMgr taskList={taskList} onDelete={deleteTask} onEdit={handleEdit}></TaskMgr>
               <Button variant="success" size="lg" className="fixed-right-bottom" onClick={() => setSelectedTask(MODAL.ADD)}>+</Button>
               {(selectedTask !== MODAL.CLOSED) && <ModalForm task={findTask(selectedTask)} onSave={handleSaveOrUpdate} onClose={handleClose}></ModalForm>}
             </Route>
@@ -96,7 +85,7 @@ const App = () => {
 
 const TaskMgr = (props) => {
 
-  const { collapsed, taskList, onDelete, onEdit } = props;
+  const { taskList, onDelete, onEdit } = props;
 
   // Gets active filter from route if matches, otherwise the dafault is all
   const params = useParams();
@@ -120,8 +109,6 @@ const TaskMgr = (props) => {
   }
 
   const history = useHistory();
-  // if(! (activeFilter in filters) ) history.push('/');
-
 
   // Route to the filter view
   function handleSelection(filter) {
@@ -131,12 +118,10 @@ const TaskMgr = (props) => {
 
   return (
     <>
-      <Collapse in={collapsed}>
-        <Col sm={4} bg="light" className="collapse d-sm-block below-nav" id="left-sidebar">
+      <Col xs={4} bg="light" className="below-nav" id="left-sidebar">
           <Filters items={filters} defaultActiveKey={activeFilter} onSelection={handleSelection} />
         </Col>
-      </Collapse>
-      <Col sm={8} className="col-sm-8 col-12 below-nav">
+      <Col xs={8} className="below-nav">
         <h1 className="pb-3">Filter: <small className="text-muted">{activeFilter}</small></h1>
         <ContentList 
           tasks={taskList.filter(filters[activeFilter].filterFn)} 
