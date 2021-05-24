@@ -2,6 +2,8 @@
 
 We designed this version of the BigLab 1 to work with devices of different sizes.
 
+All the texts of the BigLab1 are available inside the [course-materials repository](https://github.com/polito-WA1-AW1-2021/course-materials/tree/main/labs/BigLab1).
+
 
 ## ToDo List in React
 
@@ -18,10 +20,10 @@ To better keep track of your progress, we suggest you work incrementally “week
 
 ## What are we building in these weeks?
 
-1. During the first week, you will start setting up the front-end for the task manager. To do so, you will use the [React-enabled version of Bootstrap](https://react-bootstrap.github.io/). The page has to be static; you do not have to implement any user actions. For the visual appearance of the web application, you can get inspiration from the screenshot in the next page.
-2. In the second week, you will re-structure your web-based task manager to exploit the component-based approach of the React framework. Specifically, you will divide your application into different components, and you will identify the state and props required to store and visualize tasks, starting from the tasks data structure.
-3. During the third week, you will implement the filters (i.e., important, today, next 7 days, private), and you will add the possibility to create and add new tasks.
-4. In the last week, you will learn how to restructure your application to use routes for supporting multiple “pages”, e.g., by developing a different route for each filter. Furthermore, you will allow users to delete and edit tasks.
+1. [During the first week](https://github.com/polito-WA1-AW1-2021/course-materials/blob/main/labs/BigLab1/BigLab1a.pdf), you will start setting up the front-end for the task manager. To do so, you will use the [React-enabled version of Bootstrap](https://react-bootstrap.github.io/). The page has to be static; you do not have to implement any user actions. For the visual appearance of the web application, you can get inspiration from the screenshot in the next page.
+2. [In the second week](https://github.com/polito-WA1-AW1-2021/course-materials/blob/main/labs/BigLab1/BigLab1b.pdf), you will re-structure your web-based task manager to exploit the component-based approach of the React framework. Specifically, you will divide your application into different components, and you will identify the state and props required to store and visualize tasks, starting from the tasks data structure.
+3. [During the third week](https://github.com/polito-WA1-AW1-2021/course-materials/blob/main/labs/BigLab1/BigLab1c.pdf), you will implement the filters (i.e., important, today, next 7 days, private), and you will add the possibility to create and add new tasks.
+4. [In the last week](https://github.com/polito-WA1-AW1-2021/course-materials/blob/main/labs/BigLab1/BigLab1d.pdf), you will learn how to restructure your application to use routes for supporting multiple “pages”, e.g., by developing a different route for each filter. Furthermore, you will allow users to delete and edit tasks.
 
 
 ## Evaluation Criteria & Deadlines
