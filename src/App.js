@@ -33,7 +33,7 @@ const App = () => {
   
   const toggleSidebar = () => {
     // Commented out because not required
-    setOpenMobileMenu((flag) => /*!*/flag)
+    setOpenMobileMenu((flag) => !flag)
   }
   
 
